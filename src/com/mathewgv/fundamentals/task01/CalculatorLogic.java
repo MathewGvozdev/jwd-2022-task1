@@ -2,45 +2,45 @@ package com.mathewgv.fundamentals.task01;
 
 public class CalculatorLogic {
 
-    public String solve(Task task, CalculatorInput input) {
-        switch (task) {
-            case TASK1:
-                return String.valueOf(performTask1(input));
-            case TASK2:
-                return String.valueOf(performTask2(input));
-            case TASK3:
-                double[] values = performTask3(input);
-                return values[0] + " " + values[1];
-            case TASK4:
-                return String.valueOf(performTask4(input));
-            default:
-                return "Несуществующая задача";
-        }
-    }
-
-    private boolean performTask1(CalculatorInput input) {
-        int fourDigitsNumber = input.enterIntValueFromConsole("Введите четырехзначное число");
+    public boolean performTask1(int fourDigitsNumber) {
         return isFirstDigitsSumEqualsToLastDigitsSum(fourDigitsNumber);
     }
 
-    private double performTask2(CalculatorInput input) {
-        double a = input.enterDoubleValueFromConsole("Введите переменную a");
-        double b = input.enterDoubleValueFromConsole("Введите переменную b");
-        double c = input.enterDoubleValueFromConsole("Введите переменную c");
+    public double performTask2(double a, double b, double c) {
         return evaluateExpression(a, b, c);
     }
 
-    private double[] performTask3(CalculatorInput input) {
-        double cathetus1 = input.enterDoubleValueFromConsole("Введите 1-ый катет");
-        double cathetus2 = input.enterDoubleValueFromConsole("Введите 2-ой катет");
+    public double[] performTask3(double cathetus1, double cathetus2) {
         return evaluateTrianglePerimeterAndSquare(cathetus1, cathetus2);
     }
 
-    private boolean performTask4(CalculatorInput input) {
-        int x = input.enterIntValueFromConsole("Введите координату x");
-        int y = input.enterIntValueFromConsole("Введите координату y");
+    public boolean performTask4(int x, int y) {
         return isPointInShadedArea(x, y);
     }
+
+//    public boolean performTask1(CalculatorInput input) {
+//        int fourDigitsNumber = input.enterIntValueFromConsole("Введите четырехзначное число");
+//        return isFirstDigitsSumEqualsToLastDigitsSum(fourDigitsNumber);
+//    }
+//
+//    public double performTask2(CalculatorInput input) {
+//        double a = input.enterDoubleValueFromConsole("Введите переменную a");
+//        double b = input.enterDoubleValueFromConsole("Введите переменную b");
+//        double c = input.enterDoubleValueFromConsole("Введите переменную c");
+//        return evaluateExpression(a, b, c);
+//    }
+//
+//    public double[] performTask3(CalculatorInput input) {
+//        double cathetus1 = input.enterDoubleValueFromConsole("Введите 1-ый катет");
+//        double cathetus2 = input.enterDoubleValueFromConsole("Введите 2-ой катет");
+//        return evaluateTrianglePerimeterAndSquare(cathetus1, cathetus2);
+//    }
+//
+//    public boolean performTask4(CalculatorInput input) {
+//        int x = input.enterIntValueFromConsole("Введите координату x");
+//        int y = input.enterIntValueFromConsole("Введите координату y");
+//        return isPointInShadedArea(x, y);
+//    }
 
     private boolean isFirstDigitsSumEqualsToLastDigitsSum(int value) {
         int[] valueNumbers = new int[4];

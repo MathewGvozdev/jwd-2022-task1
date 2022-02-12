@@ -8,7 +8,30 @@ public class CalculatorController {
 
     public void execute(Task task) {
         view.printTaskDescription(task);
-        String result = logic.solve(task, input);
+        String result = solve(task);
         view.print(task, result);
+    }
+
+    public String solve(Task task) {
+        switch (task) {
+            case TASK1:
+                int fourDigitsNumber = input.enterIntValueFromConsole("Введите четырехзначное число");
+                return view.convertToString(logic.performTask1(fourDigitsNumber));
+            case TASK2:
+                double a = input.enterDoubleValueFromConsole("Введите переменную a");
+                double b = input.enterDoubleValueFromConsole("Введите переменную b");
+                double c = input.enterDoubleValueFromConsole("Введите переменную c");
+                return view.convertToString(logic.performTask2(a, b, c));
+            case TASK3:
+                double cathetus1 = input.enterDoubleValueFromConsole("Введите 1-ый катет");
+                double cathetus2 = input.enterDoubleValueFromConsole("Введите 2-ой катет");
+                return view.convertArrayToString(logic.performTask3(cathetus1, cathetus2));
+            case TASK4:
+                int x = input.enterIntValueFromConsole("Введите координату x");
+                int y = input.enterIntValueFromConsole("Введите координату y");
+                return view.convertToString(logic.performTask4(x, y));
+            default:
+                return "Несуществующая задача";
+        }
     }
 }

@@ -19,4 +19,16 @@ public class CalculatorView {
     public void printTaskDescription(Task task) {
         System.out.println(task.getTaskDescription());
     }
+
+    public String convertArrayToString(double[] results) {
+        return results[0] + " " + results[1];
+    }
+
+    public String convertToString(double result) {
+        return String.valueOf(result);
+    }
+
+    public String convertToString(boolean result) {
+        return String.valueOf(result);
+    }
 }
