@@ -12,7 +12,7 @@ public class CalculatorController {
         view.print(task, result);
     }
 
-    public String solve(Task task) {
+    private String solve(Task task) {
         switch (task) {
             case TASK1:
                 int fourDigitsNumber = input.enterIntValueFromConsole("Введите четырехзначное число");
