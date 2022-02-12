@@ -1,5 +1,7 @@
 package com.mathewgv.fundamentals.task01;
 
+import java.util.Arrays;
+
 public class CalculatorView {
 
     public void print(Task task, String result) {
@@ -21,7 +23,10 @@ public class CalculatorView {
     }
 
     public String convertArrayToString(double[] results) {
-        return results[0] + " " + results[1];
+        String arr = Arrays.toString(results);
+        var temp = arr.replace("[", "").replace("]", "");
+        arr = temp.replace(", ", " ");
+        return arr;
     }
 
     public String convertToString(double result) {

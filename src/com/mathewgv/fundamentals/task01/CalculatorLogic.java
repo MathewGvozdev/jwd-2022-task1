@@ -18,30 +18,6 @@ public class CalculatorLogic {
         return isPointInShadedArea(x, y);
     }
 
-//    public boolean performTask1(CalculatorInput input) {
-//        int fourDigitsNumber = input.enterIntValueFromConsole("Введите четырехзначное число");
-//        return isFirstDigitsSumEqualsToLastDigitsSum(fourDigitsNumber);
-//    }
-//
-//    public double performTask2(CalculatorInput input) {
-//        double a = input.enterDoubleValueFromConsole("Введите переменную a");
-//        double b = input.enterDoubleValueFromConsole("Введите переменную b");
-//        double c = input.enterDoubleValueFromConsole("Введите переменную c");
-//        return evaluateExpression(a, b, c);
-//    }
-//
-//    public double[] performTask3(CalculatorInput input) {
-//        double cathetus1 = input.enterDoubleValueFromConsole("Введите 1-ый катет");
-//        double cathetus2 = input.enterDoubleValueFromConsole("Введите 2-ой катет");
-//        return evaluateTrianglePerimeterAndSquare(cathetus1, cathetus2);
-//    }
-//
-//    public boolean performTask4(CalculatorInput input) {
-//        int x = input.enterIntValueFromConsole("Введите координату x");
-//        int y = input.enterIntValueFromConsole("Введите координату y");
-//        return isPointInShadedArea(x, y);
-//    }
-
     private boolean isFirstDigitsSumEqualsToLastDigitsSum(int value) {
         int[] valueNumbers = new int[4];
         int divider = 1000;
