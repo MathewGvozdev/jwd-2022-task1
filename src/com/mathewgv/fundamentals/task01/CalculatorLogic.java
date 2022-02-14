@@ -19,17 +19,26 @@ public class CalculatorLogic {
     }
 
     private boolean isFirstDigitsSumEqualsToLastDigitsSum(int value) {
-        int[] valueNumbers = new int[4];
-        int divider = 1000;
-        if (value / divider == 0 && value / divider >= 9) {
+        validateFourDigitsNumber(value);
+        int[] digits = splitToDigits(value);
+        return digits[0] + digits[1] == digits[2] + digits[3];
+    }
+
+    private void validateFourDigitsNumber(int value) {
+        if (value < 1000 || value > 9999) {
             throw new IllegalArgumentException();
         }
+    }
+
+    private int[] splitToDigits(int value) {
+        int[] valueNumbers = new int[4];
+        int divider = 1000;
         for (int i = 0; i < valueNumbers.length; ++i) {
             valueNumbers[i] = value / divider;
             value %= divider;
             divider /= 10;
         }
-        return valueNumbers[0] + valueNumbers[1] == valueNumbers[2] + valueNumbers[3];
+        return valueNumbers;
     }
 
     private double evaluateExpression(double a, double b, double c) {

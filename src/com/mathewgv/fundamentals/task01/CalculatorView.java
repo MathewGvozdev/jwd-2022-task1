@@ -5,17 +5,33 @@ import java.util.Arrays;
 public class CalculatorView {
 
     public void print(Task task, String result) {
+        System.out.println(selectFormatForTask(task, result));
+        System.out.println();
+    }
+
+    private String selectFormatForTask(Task task, String result) {
         String format;
         if (task == Task.TASK3) {
-            String[] perimeterAndSquare = result.split(" ");
-            String perimeter = perimeterAndSquare[0];
-            String square = perimeterAndSquare[1];
+            String[] perimeterAndSquare = splitResultToDesiredValues(result);
+            String perimeter = getPerimeterFromResult(perimeterAndSquare);
+            String square = getSquareFromResult(perimeterAndSquare);
             format = String.format(task.getTaskReply(), perimeter, square);
         } else {
             format = String.format(task.getTaskReply(), result);
         }
-        System.out.println(format);
-        System.out.println();
+        return format;
+    }
+
+    private String[] splitResultToDesiredValues(String result) {
+        return result.split(" ");
+    }
+
+    private String getPerimeterFromResult(String[] perimeterAndSquare) {
+        return perimeterAndSquare[0];
+    }
+
+    private String getSquareFromResult(String[] perimeterAndSquare) {
+        return perimeterAndSquare[1];
     }
 
     public void printTaskDescription(Task task) {
