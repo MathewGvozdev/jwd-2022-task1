@@ -19,10 +19,36 @@ public class CalculatorInput {
         return readDoubleValue();
     }
 
-    private void validateIntValue() {
-        while(!scanner.hasNextInt()) {
-            scanner.next();
+    public int enterFourDigitsNumberFromConsole(String message) {
+        System.out.print(message + ":\n> ");
+        String value = scanner.nextLine();
+        try {
+            while (!isFourDigitNumber(value)) {
+                System.err.println("Некорректный ввод");
+                value = scanner.nextLine();
+            }
+        } catch (NumberFormatException e) {
             System.err.println("Некорректный ввод");
+        }
+        return Integer.parseInt(value);
+    }
+
+    private void validateFourDigitsNumber() {
+        var value = scanner.next();
+        while (!scanner.hasNextInt() && isFourDigitNumber(value)) {
+            System.err.println("Некорректный ввод. Введите четырехзначное число");
+            value = scanner.next();
+        }
+    }
+
+    private boolean isFourDigitNumber(String value) {
+        return Integer.parseInt(value) >= 1000 && Integer.parseInt(value) <= 9999;
+    }
+
+    private void validateIntValue() {
+        while (!scanner.hasNextInt()) {
+            System.err.println("Некорректный ввод");
+            scanner.next();
         }
     }
 
@@ -33,9 +59,9 @@ public class CalculatorInput {
     }
 
     private void validateDoubleValue() {
-        while(!scanner.hasNextDouble()) {
-            scanner.next();
+        while (!scanner.hasNextDouble()) {
             System.err.println("Некорректный ввод");
+            scanner.next();
         }
     }
 

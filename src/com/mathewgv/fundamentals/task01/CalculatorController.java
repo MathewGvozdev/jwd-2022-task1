@@ -8,14 +8,14 @@ public class CalculatorController {
 
     public void execute(Task task) {
         view.printTaskDescription(task);
-        String result = solve(task);
-        view.print(task, result);
+        String solution = selectSolution(task);
+        view.print(task, solution);
     }
 
-    private String solve(Task task) {
+    private String selectSolution(Task task) {
         switch (task) {
             case TASK1:
-                int fourDigitsNumber = input.enterIntValueFromConsole("Введите четырехзначное число");
+                int fourDigitsNumber = input.enterFourDigitsNumberFromConsole("Введите четырехзначное число");
                 return view.convertToString(logic.performTask1(fourDigitsNumber));
             case TASK2:
                 double a = input.enterDoubleValueFromConsole("Введите переменную a");

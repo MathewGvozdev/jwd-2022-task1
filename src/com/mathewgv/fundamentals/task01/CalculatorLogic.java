@@ -11,7 +11,9 @@ public class CalculatorLogic {
     }
 
     public double[] performTask3(double cathetus1, double cathetus2) {
-        return evaluateTrianglePerimeterAndSquare(cathetus1, cathetus2);
+        double perimeter = evaluateTrianglePerimeter(cathetus1, cathetus2);
+        double square = evaluateTriangleSquare(cathetus1, cathetus2);
+        return new double[]{perimeter, square};
     }
 
     public boolean performTask4(int x, int y) {
@@ -19,15 +21,8 @@ public class CalculatorLogic {
     }
 
     private boolean isFirstDigitsSumEqualsToLastDigitsSum(int value) {
-        validateFourDigitsNumber(value);
         int[] digits = splitToDigits(value);
         return digits[0] + digits[1] == digits[2] + digits[3];
-    }
-
-    private void validateFourDigitsNumber(int value) {
-        if (value < 1000 || value > 9999) {
-            throw new IllegalArgumentException();
-        }
     }
 
     private int[] splitToDigits(int value) {
@@ -45,11 +40,13 @@ public class CalculatorLogic {
         return (b + Math.sqrt(b*b + 4*a*c)) / (2*a) - a*a*a*c + Math.pow(b, -2);
     }
 
-    private double[] evaluateTrianglePerimeterAndSquare(double a, double b) {
+    private double evaluateTrianglePerimeter(double a, double b) {
         double hyp = Math.sqrt(a*a + b*b);
-        double perimeter = a + b + hyp;
-        double square = 0.5 * a * b;
-        return new double[] {perimeter, square};
+        return a + b + hyp;
+    }
+
+    private double evaluateTriangleSquare(double a, double b) {
+        return 0.5 * a * b;
     }
 
     private boolean isPointInShadedArea(int x, int y) {
